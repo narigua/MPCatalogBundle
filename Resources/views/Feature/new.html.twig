@@ -1,0 +1,25 @@
+{% extends "MPCatalogBundle::adminbase.html.twig" %}
+
+{% block body %}
+
+{{ parent() }}
+
+<div class="page-header">
+  <h1>{% trans %}Feature creation{% endtrans %}</h1>
+</div>
+
+<form action="{{ path('admin_feature_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit" class="btn btn-primary">{% trans %}Create{% endtrans %}</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a class="btn" href="{{ path('admin_feature') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+</ul>
+{% endblock body %}

@@ -1,0 +1,23 @@
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="{# path('admin_home') #}">The Market Place</a>
+    <ul class="nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          {% trans %}Catalog{% endtrans %}
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('admin_category') }}">{% trans %}Category{% endtrans %}</a></li>
+            <li><a href="{{ path('admin_product') }}">{% trans %}Products{% endtrans %}</a></li>
+            <li><a href="{{ path('admin_downloadableproduct') }}">{% trans %}Downloadable Products{% endtrans %}</a></li>
+            <li><a href="{{ path('admin_productowner') }}">{% trans %}Product Owner{% endtrans %}</a></li>
+            <li><a href="{{ path('admin_brand') }}">{% trans %}Brand{% endtrans %}</a></li>
+        </ul>
+      </li>
+    </ul>
+    <form class="navbar-search pull-right">
+      <input class="span2 search-query" type="text" placeholder="Rechercher…" data-provide="typeahead">
+    </form>
+  </div>
+</div>
