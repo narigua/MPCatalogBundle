@@ -75,10 +75,10 @@ class Brand
     /**
      * Add products
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Product $products
+     * @param \MP\Bundle\CatalogBundle\Entity\Product $products
      * @return Brand
      */
-    public function addProduct(MP\Bundle\CatalogBundle\Entity\Product $products)
+    public function addProduct(\MP\Bundle\CatalogBundle\Entity\Product $products)
     {
         $this->products[] = $products;
     
@@ -88,9 +88,9 @@ class Brand
     /**
      * Remove products
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Product $products
+     * @param \MP\Bundle\CatalogBundle\Entity\Product $products
      */
-    public function removeProduct(MP\Bundle\CatalogBundle\Entity\Product $products)
+    public function removeProduct(\MP\Bundle\CatalogBundle\Entity\Product $products)
     {
         $this->products->removeElement($products);
     }

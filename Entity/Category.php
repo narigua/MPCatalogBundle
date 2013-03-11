@@ -155,10 +155,10 @@ class Category
     /**
      * Add product
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Product $product
+     * @param \MP\Bundle\CatalogBundle\Entity\Product $product
      * @return Category
      */
-    public function addProduct(MP\Bundle\CatalogBundle\Entity\Product $product)
+    public function addProduct(\MP\Bundle\CatalogBundle\Entity\Product $product)
     {
         $this->products[] = $product;
     
@@ -168,9 +168,9 @@ class Category
     /**
      * Remove product
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Product $product
+     * @param \MP\Bundle\CatalogBundle\Entity\Product $product
      */
-    public function removeProduct(MP\Bundle\CatalogBundle\Entity\Product $product)
+    public function removeProduct(\MP\Bundle\CatalogBundle\Entity\Product $product)
     {
         $this->products->removeElement($product);
     }
@@ -280,10 +280,10 @@ class Category
     /**
      * Add children
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Category $children
+     * @param \MP\Bundle\CatalogBundle\Entity\Category $children
      * @return Category
      */
-    public function addChildren(MP\Bundle\CatalogBundle\Entity\Category $children)
+    public function addChildren(\MP\Bundle\CatalogBundle\Entity\Category $children)
     {
         $this->children[] = $children;
     
@@ -293,9 +293,9 @@ class Category
     /**
      * Remove children
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Category $children
+     * @param \MP\Bundle\CatalogBundle\Entity\Category $children
      */
-    public function removeChildren(MP\Bundle\CatalogBundle\Entity\Category $children)
+    public function removeChildren(\MP\Bundle\CatalogBundle\Entity\Category $children)
     {
         $this->children->removeElement($children);
     }
@@ -313,10 +313,10 @@ class Category
     /**
      * Set parent
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Category $parent
+     * @param \MP\Bundle\CatalogBundle\Entity\Category $parent
      * @return Category
      */
-    public function setParent(MP\Bundle\CatalogBundle\Entity\Category $parent = null)
+    public function setParent(\MP\Bundle\CatalogBundle\Entity\Category $parent = null)
     {
         $this->parent = $parent;
     
@@ -326,7 +326,7 @@ class Category
     /**
      * Get parent
      *
-     * @return MP\Bundle\CatalogBundle\Entity\Category 
+     * @return \MP\Bundle\CatalogBundle\Entity\Category 
      */
     public function getParent()
     {

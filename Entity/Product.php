@@ -66,7 +66,7 @@ class Product
     protected $categories;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ProductOwner", inversedBy="products")
+     * @ORM\ManyToOne(targetEntity="ProductOwner", inversedBy="products", cascade={"persist"})
      * @ORM\JoinColumn(name="owner_id", referencedColumnName="id", onDelete="SET NULL")
      */
     protected $owner;
@@ -78,7 +78,7 @@ class Product
     protected $brand;
 
     /**
-     * @ORM\OneToMany(targetEntity="Feature", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="Feature", mappedBy="product", cascade={"persist"})
      */
     protected $features;
 
@@ -219,10 +219,10 @@ class Product
     /**
      * Set category
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Category $category
+     * @param \MP\Bundle\CatalogBundle\Entity\Category $category
      * @return Product
      */
-    public function setCategory(MP\Bundle\CatalogBundle\Entity\Category $category = null)
+    public function setCategory(\MP\Bundle\CatalogBundle\Entity\Category $category = null)
     {
         $this->category = $category;
     
@@ -232,7 +232,7 @@ class Product
     /**
      * Get category
      *
-     * @return MP\Bundle\CatalogBundle\Entity\Category 
+     * @return \MP\Bundle\CatalogBundle\Entity\Category 
      */
     public function getCategory()
     {
@@ -319,10 +319,10 @@ class Product
     /**
      * Add categories
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Category $categories
+     * @param \MP\Bundle\CatalogBundle\Entity\Category $categories
      * @return Product
      */
-    public function addCategorie(MP\Bundle\CatalogBundle\Entity\Category $categories)
+    public function addCategorie(\MP\Bundle\CatalogBundle\Entity\Category $categories)
     {
         $this->categories[] = $categories;
     
@@ -332,9 +332,9 @@ class Product
     /**
      * Remove categories
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Category $categories
+     * @param \MP\Bundle\CatalogBundle\Entity\Category $categories
      */
-    public function removeCategorie(MP\Bundle\CatalogBundle\Entity\Category $categories)
+    public function removeCategorie(\MP\Bundle\CatalogBundle\Entity\Category $categories)
     {
         $this->categories->removeElement($categories);
     }
@@ -352,10 +352,10 @@ class Product
     /**
      * Set owner
      *
-     * @param MP\Bundle\CatalogBundle\Entity\ProductOwner $owner
+     * @param \MP\Bundle\CatalogBundle\Entity\ProductOwner $owner
      * @return Product
      */
-    public function setOwner(MP\Bundle\CatalogBundle\Entity\ProductOwner $owner = null)
+    public function setOwner(\MP\Bundle\CatalogBundle\Entity\ProductOwner $owner = null)
     {
         $this->owner = $owner;
     
@@ -365,7 +365,7 @@ class Product
     /**
      * Get owner
      *
-     * @return MP\Bundle\CatalogBundle\Entity\ProductOwner 
+     * @return \MP\Bundle\CatalogBundle\Entity\ProductOwner 
      */
     public function getOwner()
     {
@@ -375,10 +375,10 @@ class Product
     /**
      * Set brand
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Brand $brand
+     * @param \MP\Bundle\CatalogBundle\Entity\Brand $brand
      * @return Product
      */
-    public function setBrand(MP\Bundle\CatalogBundle\Entity\Brand $brand = null)
+    public function setBrand(\MP\Bundle\CatalogBundle\Entity\Brand $brand = null)
     {
         $this->brand = $brand;
     
@@ -388,7 +388,7 @@ class Product
     /**
      * Get brand
      *
-     * @return MP\Bundle\CatalogBundle\Entity\Brand 
+     * @return \MP\Bundle\CatalogBundle\Entity\Brand 
      */
     public function getBrand()
     {
@@ -398,11 +398,12 @@ class Product
     /**
      * Add features
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Feature $features
+     * @param \MP\Bundle\CatalogBundle\Entity\Feature $features
      * @return Product
      */
-    public function addFeature(MP\Bundle\CatalogBundle\Entity\Feature $features)
+    public function addFeature(\MP\Bundle\CatalogBundle\Entity\Feature $features)
     {
+        $features->setProduct($this);
         $this->features[] = $features;
     
         return $this;
@@ -411,9 +412,9 @@ class Product
     /**
      * Remove features
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Feature $features
+     * @param \MP\Bundle\CatalogBundle\Entity\Feature $features
      */
-    public function removeFeature(MP\Bundle\CatalogBundle\Entity\Feature $features)
+    public function removeFeature(\MP\Bundle\CatalogBundle\Entity\Feature $features)
     {
         $this->features->removeElement($features);
     }

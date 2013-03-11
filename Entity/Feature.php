@@ -18,12 +18,12 @@ class Feature
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(name="xkey", type="string", length=128)
      */
     protected $key;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="xvalue", type="string", length=255)
      */
     protected $value;
 
@@ -92,10 +92,10 @@ class Feature
     /**
      * Set product
      *
-     * @param MP\Bundle\CatalogBundle\Entity\Product $product
+     * @param \MP\Bundle\CatalogBundle\Entity\Product $product
      * @return Feature
      */
-    public function setProduct(MP\Bundle\CatalogBundle\Entity\Product $product = null)
+    public function setProduct(\MP\Bundle\CatalogBundle\Entity\Product $product = null)
     {
         $this->product = $product;
     
@@ -105,7 +105,7 @@ class Feature
     /**
      * Get product
      *
-     * @return MP\Bundle\CatalogBundle\Entity\Product 
+     * @return \MP\Bundle\CatalogBundle\Entity\Product 
      */
     public function getProduct()
     {
