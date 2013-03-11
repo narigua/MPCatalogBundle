@@ -2,3 +2,17 @@
 Form/.DS_Store
 
 Controller/.DS_Store
+
+Tests/Controller/DownloadableProductControllerTest.php
+
+Tests/Controller/BrandControllerTest.php
+
+Tests/Controller/CategoryControllerTest.php
+
+Tests/Controller/FeatureControllerTest.php
+
+Tests/Controller/ProductControllerTest.php
+
+Tests/Controller/ProductOwnerControllerTest.php
+
+Resources/views/.DS_Store
