@@ -1,6 +1,13 @@
 {% extends "MPCatalogBundle::adminbase.html.twig" %}
 
-{% block body %}
+{% block breadcrumb %}
+    {% include "MPCatalogBundle::breadcrumb.html.twig" with { "items": {
+        "DownloadableProduct List": path("admin_downloadableproduct"),
+        "Show": ""
+    }} %}
+{% endblock %}
+
+{% block content %}
 
 {{ parent() }}
 
@@ -75,4 +82,4 @@
         </form>
     </li>
 </ul>
-{% endblock body %}
+{% endblock %}

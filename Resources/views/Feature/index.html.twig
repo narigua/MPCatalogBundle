@@ -1,6 +1,12 @@
 {% extends "MPCatalogBundle::adminbase.html.twig" %}
 
-{% block body %}
+{% block breadcrumb %}
+    {% include "MPCatalogBundle::breadcrumb.html.twig" with { "items": {
+        "Feature List": ""
+    }} %}
+{% endblock %}
+
+{% block content %}
 
 {{ parent() }}
 
@@ -56,4 +62,4 @@
         </a>
     </li>
 </ul>
-{% endblock body %}
+{% endblock %}

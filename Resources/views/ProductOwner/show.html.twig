@@ -1,6 +1,11 @@
 {% extends "MPCatalogBundle::adminbase.html.twig" %}
 
-{% block body %}
+{% block breadcrumb %}
+    {% include "MPCatalogBundle::breadcrumb.html.twig" with { "items": {
+        "ProductOwner List": path("admin_productowner"),
+        "Show": ""
+    }} %}
+{% endblock %}
 
 {{ parent() }}
 
@@ -75,4 +80,4 @@
         </form>
     </li>
 </ul>
-{% endblock body %}
+{% endblock %}
