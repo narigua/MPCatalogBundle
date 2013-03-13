@@ -1,13 +1,21 @@
 {% extends "::base.html.twig" %}
 
+{% block title %}{% trans %}The Market Place - BackOffice{% endtrans %}{% endblock %}
+
 {% block stylesheets %}
 {{ parent() }}
     <link rel="stylesheet" type="text/css" href="{{ asset("bootstrap/css/bootstrap.css") }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset("bootstrap/css/bootstrap-responsive.css") }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}" />
 {% endblock %}
 
 {% block body %}
+<div id="wrap">
     {% include "MPCatalogBundle::menu.html.twig" %}
+
+    {% block breadcrumb %}{% endblock %}
+
     {% for flashMessage in app.session.flashbag.get('info') %}
         <div class="alert alert-info">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -30,6 +38,15 @@
     {% endfor %}
 
     {{ parent() }}
+
+    {% block content %}{% endblock %}
+    <div id="push"></div>
+    </div>
+    <div id="footer">
+        <div class="container container-inverse">
+            <p>&copy; <a href="{{ path('admin_home') }}">{% trans %}The Market Place{% endtrans %}</a>, 2013 - {{ 'now'|date('Y') }}.</p>
+        </div>
+    </div>
 
 {% endblock %}
 

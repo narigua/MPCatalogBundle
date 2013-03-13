@@ -1,6 +1,13 @@
 {% extends "MPCatalogBundle::adminbase.html.twig" %}
 
-{% block body %}
+{% block breadcrumb %}
+    {% include "MPCatalogBundle::breadcrumb.html.twig" with { "items": {
+        "Brand List": path("admin_brand"),
+        "Show": ""
+    }} %}
+{% endblock %}
+
+{% block content %}
 
 {{ parent() }}
 
@@ -39,4 +46,4 @@
         </form>
     </li>
 </ul>
-{% endblock body %}
+{% endblock %}
