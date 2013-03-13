@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 /**
  * @Route("/admin")
  */
-class BackOfficeController extends Controller
+class BackendController extends Controller
 {
     /**
      * @Route("/", name="admin_home")
