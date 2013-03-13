@@ -11,6 +11,6 @@ interface ProductOwnerInterface
 	public function getCity();
 	public function getCountry();
 	public function getPhone();
-	public function getMail();
+	public function getEmail();
 
 }

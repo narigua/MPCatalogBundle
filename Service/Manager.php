@@ -74,7 +74,7 @@ class Manager
 			->setCity($product_owner_interface->getCity())
 			->setCountry($product_owner_interface->getCountry())
 			->setPhone($product_owner_interface->getPhone())
-			->setMail($product_owner_interface->getMail())
+			->setMail($product_owner_interface->getEmail())
 			->setOwnerId($product_owner_interface->getId())
 			->setOwnerClass($this->getClassName($product_owner_interface))
 			->setOwnerHash($this->getHash($product_owner_interface))
@@ -83,5 +83,36 @@ class Manager
 		$product->setOwner($productOwner);
 
 		return $product;
+	}
+
+	public function createProductOwner(ProductOwnerInterface $product_owner_interface)
+	{
+		$productOwner = new ProductOwner();
+		$productOwner
+			->setName($product_owner_interface->getName())
+			->setAddress($product_owner_interface->getAddress())
+			->setPostCode($product_owner_interface->getPostCode())
+			->setCity($product_owner_interface->getCity())
+			->setCountry($product_owner_interface->getCountry())
+			->setPhone($product_owner_interface->getPhone())
+			->setMail($product_owner_interface->getEmail())
+			->setOwnerId($product_owner_interface->getId())
+			->setOwnerClass($this->getClassName($product_owner_interface))
+			->setOwnerHash($this->getHash($product_owner_interface))
+		;
+		$this->getEntityManager()->persist($productOwner);
+		$this->getEntityManager()->flush();
+
+		return $productOwner;
+	}
+
+	public function getAttachedProductOwner(ProductOwnerInterface $product_owner_interface)
+	{
+		return $this->getEntityManager()
+			->getRepository('MPCatalogBundle:ProductOwner')
+			->findOneBy(array(
+				'ownerHash' => $this->getHash($product_owner_interface)
+			))
+		;
 	}
 }

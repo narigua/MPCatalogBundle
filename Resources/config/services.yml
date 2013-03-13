@@ -1,1 +1,4 @@
-#services:
+services:
+    mp.manager:
+        class: MP\Bundle\CatalogBundle\Service\Manager
+        arguments: [@doctrine.orm.entity_manager]
