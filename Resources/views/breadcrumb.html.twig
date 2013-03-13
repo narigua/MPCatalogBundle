@@ -1,0 +1,10 @@
+<ul class="breadcrumb">
+  <li><a href="{{ path('admin_home') }}">Home</a> <span class="divider">/</span></li>
+  {% for label,path in items %}
+  	{% if loop.last %}
+  		<li class="active">{{ label }}</li>
+  	{% else %}
+  		<li><a href="{{ path }}">{{ label }}</a><span class="divider">/</span></li>
+  	{% endif %}
+  {% endfor %}
+</ul>
