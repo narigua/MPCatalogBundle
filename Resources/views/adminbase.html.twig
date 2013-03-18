@@ -12,7 +12,9 @@
 
 {% block body %}
 <div id="wrap">
+    {% block menu %}
     {% include "MPCatalogBundle::menu.html.twig" %}
+    {% endblock %}
 
     {% block breadcrumb %}{% endblock %}
 
